@@ -1,27 +1,29 @@
-isbn=''
+allowables = ["pounds", "dollars", "euro", "yen"]
+rates = [1,2,3,4]
+pounds = 'pounds'
+dollars = 'dollars'
+yen = 'yen'
+euro = 'euro'
+print("Welcome to the currency converter")
 
-while (len(isbn)!= 10):
+var1 = None
+while var1 not in range(len(allowables)):
+    print('Please type the currency code you wish to convert from')
+    for index, currency in enumerate(allowables):
+        print ('enter {0} for {1}'.format(index, currency))
+    var1 = input("Please type what currency you wish to convert from ")
+var1 = int(var1)
 
-    print('Please make sure you have entered a number which is exactly 10 characters long.')
-    isbn=raw_input('Please enter the 10 digit number: ')
-    
+var2 = None
+while var2 not in range(len(allowables)):
+    print('Please type the currency code you wish to convert to')
+    for index, currency in enumerate(allowables):
+        print ('enter {0} for {1}'.format(index, currency))
+    var2 = input("Please type the currency that you wish to convert to ")
+var2 = int(var2)
 
-digit1=int(isbn[0])*11
-digit2=int(isbn[1])*10
-digit3=int(isbn[2])*9
-digit4=int(isbn[3])*8
-digit5=int(isbn[4])*7
-digit6=int(isbn[5])*6
-digit7=int(isbn[6])*5
-digit8=int(isbn[7])*4
-digit9=int(isbn[8])*3
-digit10=int(isbn[9])*2
-Result=(digit1+digit2+digit3+digit4+digit5+digit6+digit7+digit8+digit9+digit10)
-Remainder=Result%11
-digit11=11-Remainder
-if digit11==10:
-   digit11='X'
-isbnNumber=str(isbn)+str(digit11)
-print ('ypour check digit is {0}'.format (digit11))
-print('Your 11 digit isbn Number is ' + isbnNumber)
+var3 = float(input("Please type the amount of currency you wish to convert "))
+
+ammount = var3/rates[var1] *rates[var2]
+print(' your converted ammount is {0} {1}'.format(ammount,allowables[var2]))
 
